@@ -1,0 +1,29 @@
+#
+# Author Cassio Dias
+# github.com/cassiodias
+#
+Vagrant.configure(2) do |config|
+
+  config.vm.box = "ubuntu.lts.64"
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+  config.vm.provider "virtualbox" do |v|
+    v.name = "Grails projects SonarQube Box"
+    v.customize ["modifyvm", :id, "--memory", "1024"]
+  end
+  
+  # script base
+  config.vm.provision :shell, :path => "provision/base.sh"
+
+  ##
+  ## list of softwares
+  ##
+  config.vm.provision :shell, :path => "provision/install_java7_64.sh"
+  config.vm.provision :shell, :path => "provision/install_apache.sh"
+  config.vm.provision :shell, :path => "provision/install_postgresql.sh"
+  config.vm.provision :shell, :path => "provision/install_sonar.sh"
+
+  # Configuring ports
+  config.vm.hostname = "sonarqube"
+  config.vm.network :private_network, ip: "192.168.33.57"
+end
