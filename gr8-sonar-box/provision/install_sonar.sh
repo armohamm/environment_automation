@@ -9,7 +9,7 @@ mkdir /usr/sonarqube
 sudo mv sonarqube-5.1.2 /usr/sonarqube
 
 echo "Installing Gr8 plugin"
-sudo wget https://sonarsource.bintray.com/Distribution/org.sonarsource.sonar-groovy-plugin/sonar-groovy-plugin-1.2.jar -P /usr/sonarqube/sonarqube-5.1.2/extensions/plugins/sonar-groovy-plugin-1.2.jar
+sudo wget https://sonarsource.bintray.com/Distribution/org.sonarsource.sonar-groovy-plugin/sonar-groovy-plugin-1.2.jar -P /usr/sonarqube/sonarqube-5.1.2/extensions/plugins/
 
 echo "Copying sonar.properties with postgresql support"
 sudo cp -rf /vagrant/provision/sonar.properties /usr/sonarqube/sonarqube-5.1.2/conf/sonar.properties
