@@ -19,3 +19,9 @@ Running without web-app support:
 
 Running with web-app support:
 * $ docker run -i -t -p 8888:8888 pivotal/minicondapsql
+
+## Gotchas
+
+If "Cannot connect to the Docker daemon. Is the docker daemon running on this host?"
+
+* $ eval "$(docker-machine env default)"
